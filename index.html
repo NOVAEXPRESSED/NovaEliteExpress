@@ -1,0 +1,68 @@
+<!-- index.html
+     Página de inicio: imagen grande, neon title, lead, eventos cortos y enlaces.
+     EDITA: assets/imagenes/imagen-inicio.jpg -> aquí pones la imagen grande
+-->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Nova Elite — Inicio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <div class="logo">𝙉</div>
+      <h1>Nova Elite</h1>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Inicio</a>
+      <a href="eventos.html">Eventos</a>
+      <a href="discord.html">Discord</a>
+      <a href="redes.html">Redes</a>
+<a href="videos.html" class="login-button"> Ver videos ①</a>
+
+      <a class="cta" href="https://discord.gg/tu-link" target="_blank">Unirse al Discord</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <h2 class="neon-title">Nova Elite</h2>
+        <p class="lead">Comunidad épica de jugadores, creadores y amigos. Eventos, torneos, charlas y todo lo que necesitas para ser parte del equipo. Personaliza las imágenes en <code>assets/imagenes/</code> y cambia los enlaces donde marcamos.</p>
+
+        <!-- IMAGEN PRINCIPAL: CAMBIA ESTA RUTA -->
+        <img class="hero-art" src="assets/imagenes/imagen-inicio.jpg" alt="Imagen principal (cámbiala) " data-light="true">
+
+        <div style="display:flex; gap:14px; align-items:center; justify-content:center; margin-top:6px;">
+          <a class="cta" href="eventos.html">Ver eventos</a>
+          <a class="cta" href="discord.html">Unirse al Discord</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="events-section" id="preview-events">
+    <h2 style="text-align:center; margin:12px 0;">Eventos en curso</h2>
+    <div class="events-grid">
+      <!-- 3 EVENTOS (CAMBIA IMAGENES Y TEXTOS) -->
+      <div class="event-card" onclick="location.href='eventos.html'">
+        <div class="event-badge">En curso</div>
+        <img src="assets/imagenes/evento1.jpg" alt="Evento 1" data-light="true">
+        <h3>Torneo express</h3>
+        <p>Competencia rápida con premios y sorpresas.</p>
+      </div>
+  </section>
+
+  <footer class="footer">
+    © Nova Elite • Diseñado por Kuarson att saddan • Mantente al tanto por la pagina.
+  </footer>
+
+  <div id="lightbox-placeholder"></div>
+  <div class="lightbox" id="lightbox"></div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

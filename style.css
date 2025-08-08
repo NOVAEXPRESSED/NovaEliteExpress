@@ -1,0 +1,359 @@
+/* assets/style.css
+   Estilos globales para Nova Elite
+   -> Paleta: morados + acentos RGB neon
+   -> Cambia variables al principio para personalizar colores rápidamente
+*/
+
+/* ================== VARIABLES ================== */
+:root{
+  --bg:#000;               /* fondo general */
+  --neon1: #8a2be2;        /* morado principal */
+  --neon2: #c71585;        /* rosa-magenta */
+  --accent1: #00ffff;      /* cyan */
+  --accent2: #ffdd00;      /* amarillo */
+  --glass: rgba(255,255,255,0.04);
+  --glass-strong: rgba(255,255,255,0.08);
+  --card-w: 320px;
+  --s-shadow: 0 6px 30px rgba(0,0,0,0.6);
+  --radius: 14px;
+  --font: "Segoe UI", Roboto, Arial, sans-serif;
+  --star-size: 120px; /* tamaño de la estrella principal (cambia si quieres) */
+}
+
+/* ================== RESET ================== */
+*{box-sizing:border-box}
+html,body{height:100%; margin:0; padding:0; background:var(--bg); color:#fff; font-family:var(--font); -webkit-font-smoothing:antialiased}
+a{color:inherit; text-decoration:none}
+
+/* ================== LAYOUT BASICO ================== */
+.header {
+  width:100%;
+  padding:18px 28px;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1200;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+}
+.brand {
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.brand .logo {
+  width:46px; height:46px;
+  border-radius:10px;
+  background: linear-gradient(135deg, var(--neon1), var(--neon2));
+  box-shadow: 0 0 18px var(--neon1), inset 0 -6px 18px rgba(0,0,0,0.35);
+  display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff;
+  transform: rotate(-6deg);
+}
+.brand h1 {
+  font-size:1.4rem;
+  letter-spacing:1px;
+  margin:0;
+  color: white;
+  text-shadow: 0 0 6px rgba(138,43,226,0.8);
+}
+
+/* NAV */
+.nav {
+  display:flex; gap:10px; align-items:center;
+}
+.nav a {
+  padding:8px 14px;
+  border-radius:999px;
+  background:transparent;
+  transition:all .25s;
+  color: #ddd;
+  font-weight:600;
+}
+.nav a:hover {
+  transform: translateY(-3px);
+  color: white;
+  background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  box-shadow: 0 6px 30px rgba(0,0,0,0.5);
+}
+
+/* CTA */
+.cta {
+  background: linear-gradient(90deg, var(--neon2), var(--neon1));
+  padding:10px 16px;
+  border-radius: 999px;
+  color:white; font-weight:700;
+  box-shadow: 0 6px 40px rgba(138,43,226,0.18);
+}
+
+/* ================== HERO / INICIO ================== */
+.hero {
+  min-height: 100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:120px 40px 80px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* gran contenedor centrado */
+.container {
+  max-width:1100px;
+  width:100%;
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:20px;
+  align-items:center;
+}
+
+/* Tarjeta principal */
+.hero-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--radius);
+  padding:28px;
+  box-shadow: var(--s-shadow);
+  border: 1px solid rgba(255,255,255,0.03);
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  align-items:center;
+}
+
+/* Titulo neon RGB (cambia de color) */
+.neon-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  line-height:1;
+  margin:0;
+  padding:0 6px;
+  background: linear-gradient(90deg, #ff004d, #ff8a00, #ffd400, #00ffcc, #7a00ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 18px rgba(122,0,255,0.5));
+  animation: hueShift 6s linear infinite;
+}
+@keyframes hueShift {
+  0%{filter: drop-shadow(0 0 12px rgba(255,0,120,0.6))}
+  25%{filter: drop-shadow(0 0 18px rgba(0,255,255,0.5))}
+  50%{filter: drop-shadow(0 0 18px rgba(120,0,255,0.6))}
+  75%{filter: drop-shadow(0 0 18px rgba(255,200,0,0.6))}
+  100%{filter: drop-shadow(0 0 12px rgba(255,0,120,0.6))}
+}
+
+/* Texto hero */
+.lead {
+  color: #ddd;
+  font-size:1.05rem;
+  max-width:820px;
+  text-align:center;
+  opacity:0.95;
+}
+
+/* Imagen grande principal (edítala en assets/imagenes/imagen-inicio.jpg) */
+.hero-art {
+  width:100%;
+  max-height:420px;
+  object-fit:cover;
+  border-radius:12px;
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 18px 60px rgba(122,0,255,0.12);
+}
+
+/* ================== GRID DE EVENTOS ================== */
+.events-section {
+  padding:40px 24px;
+}
+.events-grid {
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.event-card {
+  width: var(--card-w);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:14px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  transition: transform .28s, box-shadow .28s;
+  cursor:pointer;
+  position:relative;
+  overflow:visible;
+}
+.event-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 70px rgba(0,0,0,0.65);
+}
+.event-card img {
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:10px;
+  display:block;
+}
+.event-card h3 { margin:10px 0 6px; font-size:1.05rem; color:#fff}
+.event-card p { color:#cfc; font-size:0.95rem; opacity:0.9}
+
+/* badge evento activo */
+.event-badge {
+  position:absolute;
+  top:12px; left:12px;
+  background: linear-gradient(90deg, var(--neon1), var(--neon2));
+  padding:6px 10px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:0.8rem;
+  color:white;
+  box-shadow: 0 8px 30px rgba(138,43,226,0.12);
+}
+
+/* Sección proximos eventos */
+.upcoming {
+  margin-top:30px;
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  align-items:flex-start;
+  flex-wrap:wrap;
+}
+
+/* ================== GRID REDES ================== */
+.social-grid {
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.social-card {
+  width:260px;
+  padding:12px;
+  border-radius:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.03);
+  text-align:center;
+}
+.social-card img{ width:100%; height:160px; object-fit:cover; border-radius:8px; }
+
+/* ================== DISCORD PAGE STYLES ================== */
+.discord-hero {
+  max-width:980px;
+  margin:0 auto;
+  padding:40px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.03);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow: 0 18px 60px rgba(0,0,0,0.5);
+  text-align:center;
+}
+
+/* ================== LOGIN SIMPLE (imagen) ================== */
+.login-art {
+  height:100vh;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  position:relative;
+}
+.login-art img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(.45);
+  position:absolute;
+  left:0; top:0;
+}
+.login-overlay {
+  position:relative;
+  z-index:50;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  text-align:center;
+}
+.login-button {
+  padding:16px 28px;
+  border-radius:999px;
+  background: linear-gradient(90deg, var(--neon1), var(--neon2));
+  color:white; font-weight:800;
+  border:none; cursor:pointer; font-size:1.05rem;
+  box-shadow: 0 18px 60px rgba(138,43,226,0.16);
+  transition: transform .18s;
+}
+.login-button:hover { transform: translateY(-4px) }
+
+/* ================== ESTRELLA RGB y PARTICULAS ================== */
+/* La "estrella grande" está hecha con un SVG en el HTML y partículas con JS */
+.star-large {
+  position:fixed;
+  width: var(--star-size);
+  height: var(--star-size);
+  pointer-events: none;
+  z-index:900;
+  mix-blend-mode: screen;
+  filter: blur(0px) drop-shadow(0 0 18px rgba(255,255,255,0.2));
+}
+.star-core {
+  width:100%; height:100%; display:block;
+  border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.15) 12%, transparent 40%);
+  box-shadow: 0 0 60px rgba(255,255,255,0.25), 0 0 140px rgba(122,0,255,0.25);
+}
+
+/* estela */
+.star-trail {
+  position: absolute;
+  width: 12px; height:12px; background: white; border-radius:50%;
+  box-shadow: 0 0 8px white;
+  opacity:0.6;
+  filter: blur(2px);
+}
+
+/* ================== FUEGO MORADO (al click) ================== */
+.click-flame {
+  position:fixed;
+  width:24px; height:24px;
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(255,0,255,0.95), rgba(122,0,255,0.8));
+  box-shadow: 0 0 34px rgba(255,0,255,0.25), 0 0 80px rgba(122,0,255,0.18);
+  pointer-events:none;
+  z-index:1000;
+  transform-origin:center;
+  animation: flamePop .55s ease-out forwards;
+}
+@keyframes flamePop {
+  0%{ transform: translateY(0) scale(1); opacity:1 }
+  100%{ transform: translateY(-30px) scale(3); opacity:0 }
+}
+
+/* ================== LIGHTBOX (para ver imagen grande) ================== */
+.lightbox {
+  position:fixed; inset:0; display:none; align-items:center; justify-content:center; background: rgba(0,0,0,0.85); z-index:2000;
+}
+.lightbox img { max-width:90%; max-height:90%; border-radius:10px; }
+
+/* ================== FOOTER ================== */
+.footer {
+  padding:20px; text-align:center; color:#cfc; opacity:0.8;
+  border-top:1px solid rgba(255,255,255,0.02);
+}
+.footer a { color:var(--accent1) }
+
+/* ================== MEDIA ================== */
+@media (min-width:900px){
+  .container { grid-template-columns: 1fr 480px; align-items:start; }
+  .hero-card { align-items:flex-start; text-align:left }
+}

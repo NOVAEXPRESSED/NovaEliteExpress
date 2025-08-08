@@ -1,0 +1,167 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+body {
+  background: #1a001f;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Header neón animado */
+.neon-header {
+  text-align: center;
+  padding: 20px;
+  background: #260035;
+  box-shadow: 0 0 20px #9400d3;
+}
+.neon-header h1 {
+  font-size: 2.5rem;
+  animation: text-glow 4s infinite;
+}
+@keyframes text-glow {
+  0%,100% { text-shadow: 0 0 5px #ff00ff, 0 0 15px #ff00ff; color: #f500ff;}
+  50% { text-shadow: 0 0 20px #4b0082, 0 0 40px #4b0082; color: #4b0082;}
+}
+
+/* Layout principal */
+.video-interface {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Player con glow */
+.video-player-section {
+  flex: 2 1 600px;
+  padding: 10px;
+}
+.video-player-glow {
+  position: relative;
+  padding: 5px;
+  border-radius: 12px;
+  background: linear-gradient(270deg, #800080, #4b0082, #9400d3);
+  animation: glow-bg 10s ease infinite alternate;
+}
+.video-player-glow video {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+}
+@keyframes glow-bg {
+  0% { box-shadow: 0 0 15px #8b00ff; }
+  50% { box-shadow: 0 0 30px #4b0082; }
+  100% { box-shadow: 0 0 15px #8b00ff; }
+}
+
+/* Título video */
+.neon-text {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.5rem;
+  animation: text-glow 4s infinite;
+}
+
+/* Playlist lateral */
+.video-playlist {
+  flex: 1 1 250px;
+  padding: 10px;
+}
+.video-playlist h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  animation: text-glow 4s infinite;
+}
+
+/* Thumbnails */
+.video-thumb {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background: #2a002e;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.video-thumb:hover {
+  background: #4b0082;
+  transform: scale(1.03);
+  box-shadow: 0 0 10px #9400d3;
+}
+.video-thumb img {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  margin-right: 12px;
+  object-fit: cover;
+}
+.thumb-title {
+  font-size: 1rem;
+}
+
+/* Comments section */
+.comments {
+  margin: 30px auto;
+  max-width: 800px;
+  padding: 20px;
+  border-top: 2px solid #4b0082;
+}
+.comments h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  animation: text-glow 4s infinite;
+}
+.comment-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.comment-form input, .comment-form textarea {
+  flex: 1;
+  padding: 10px;
+  background: #2a002e;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+.comment-form button {
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #8b00ff, #9400d3);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  animation: glow-btn 3s infinite;
+}
+@keyframes glow-btn {
+  0% { box-shadow: 0 0 10px #8b00ff; }
+  50% { box-shadow: 0 0 20px #9400d3; }
+  100% { box-shadow: 0 0 10px #8b00ff; }
+}
+.comment-list .comment {
+  background: #2a002e;
+  padding: 12px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Panel neón */
+.neon-panel {
+  background: rgba(60, 0, 80, 0.7);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 0 15px #8b00ff;
+}
+
+/* Responsive  */
+@media (max-width: 700px) {
+  .video-interface { flex-direction: column; }
+  .video-player-section, .video-playlist { flex: 1 1 100%; }
+}
+

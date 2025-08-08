@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nova Elite · Videos</title>
+  <link rel="stylesheet" href="videos.css">
+</head>
+<body>
+  <header class="header neon-header">
+    <h1>Nova Elite Videos</h1>
+  </header>
+
+  <main class="video-interface">
+    <section class="video-player-section">
+      <div class="video-player-glow">
+        <video id="player" controls poster="assets/imagenes/poster1.jpg">
+          <source src="assets/videos/video1.mp4" type="video/mp4">
+          Tu navegador no soporta video.
+        </video>
+      </div>
+      <div class="video-title neon-text" id="video-title">Evento Especial – Nova Elite</div>
+    </section>
+
+    <aside class="video-playlist">
+      <h3 class="neon-subtitle">Reproducir siguientes</h3>
+      <div class="video-thumb" onclick="changeVideo('assets/videos/video1.mp4','Evento Especial – Nova Elite','assets/imagenes/poster1.jpg')">
+        <img src="assets/imagenes/poster1.jpg" alt="Evento Especial">
+        <div class="thumb-title">Evento Especial</div>
+      </div>
+     
+    </aside>
+  </main>
+
+  <section class="comments neon-panel">
+    <h2 class="neon-subtitle">Comentarios</h2>
+    <form id="comment-form" class="comment-form">
+      <input type="text" id="username" placeholder="Tu nombre" required>
+      <textarea id="comment" placeholder="Escribe tu comentario..." required></textarea>
+      <button type="submit" class="neon-button">Publicar</button>
+    </form>
+    <div id="comment-list" class="comment-list"></div>
+  </section>
+
+  <script>
+    function changeVideo(src, title, poster) {
+      const player = document.getElementById("player");
+      player.src = src;
+      player.poster = poster;
+      player.play();
+      document.getElementById("video-title").textContent = title;
+    }
+
+    const form = document.getElementById("comment-form");
+    const commentList = document.getElementById("comment-list");
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const name = document.getElementById("username").value;
+      const txt = document.getElementById("comment").value;
+      const div = document.createElement("div");
+      div.className = "comment neon-panel";
+      div.innerHTML = `<strong>${name}:</strong> <p>${txt}</p>`;
+      commentList.prepend(div);
+      form.reset();
+    });
+  </script>
+</body>
+</html>
+

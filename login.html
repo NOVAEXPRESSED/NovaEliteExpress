@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Nova Elite — Iniciar sesión</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ======== Estilo extra solo para el login ======== */
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 25px;
+      border-radius: 15px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      max-width: 350px;
+      width: 100%;
+      animation: aparecer 0.8s ease;
+    }
+
+    .login-form input {
+      padding: 12px 15px;
+      border-radius: 30px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      font-family: inherit;
+      background: rgba(255, 255, 255, 0.9);
+      transition: all 0.3s ease;
+    }
+
+    .login-form input:focus {
+      background: white;
+      box-shadow: 0 0 8px #00ffe0;
+      transform: scale(1.02);
+    }
+
+    .login-button {
+      padding: 12px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(45deg, #00ffe0, #0077ff);
+      color: black;
+      font-weight: bold;
+      font-size: 16px;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .login-button:hover {
+      background: linear-gradient(45deg, #0077ff, #00ffe0);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 0 15px #00ffe0;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <main class="login-art">
+    <img src="assets/imagenes/login.jpg" alt="Inicio Nova Elite">
+    
+    <div class="login-overlay">
+      <h1 class="neon-title">Nova Elite</h1>
+      <p style="max-width:720px; opacity:0.9;">
+        Bienvenido. Ingresa tus datos para acceder a la comunidad.
+      </p>
+
+      <!-- Formulario pro -->
+      <form action="index.html" method="GET" class="login-form">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="text" name="usuario_roblox" placeholder="Usuario de Roblox" required>
+        <button type="submit" class="login-button">Entrar</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
+
